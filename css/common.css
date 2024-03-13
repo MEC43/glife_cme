@@ -1,0 +1,299 @@
+@charset 'utf-8';
+@import url(./my_reset.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/* .notosanskr * {
+  font-family: "Noto Sans KR", sans-serif;
+} */
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 
+font-family: "Font Awesome 6 Free";
+font-weight: 900;
+Solid → 900
+Regular, Brands → 400
+Light → 300
+ */
+
+:root {
+  --main-color: #144aaa;
+  --color2: #f0f4ff;
+  --color3: #000000;
+  --color4: #333333;
+  --color5: #777777;
+  --color6: #ffffff;
+  font-size: 16px;
+  --title-font: "GmarketSansBold", sans-serif;
+  --sub-title-font: "GmarketSansMedium", sans-serif;
+  --main-font: "Noto Sans KR", sans-serif;
+  --max-wd: 1440px;
+}
+body {
+  font-family: var(--main-font);
+}
+.inner {
+  max-width: var(--max-wd);
+  width: calc(100% - 10rem);
+  margin: auto;
+}
+.hd {
+  position: relative;
+  z-index: 999;
+}
+.hd nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*header - logo*/
+.hd .logo {
+  width: 10%;
+  min-width: 120px;
+}
+.hd .logo img {
+  padding: 0.5rem;
+}
+
+/*header - gnb*/
+.hd .gnb {
+  /* border: 1px solid green; */
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hd .gnb > li {
+  /* border: 3px solid pink; */
+  padding: 1rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.hd .gnb > li > a {
+  /* border: 3px solid lavender; */
+  font-size: 1.312rem;
+  font-family: var(--title-font);
+  white-space: nowrap;
+  padding: 1rem;
+  color: var(--main-color);
+  transition: 0.3s;
+}
+.hd .gnb > li:hover > a {
+  color: var(--color4);
+}
+.hd .gnb::before {
+  content: "";
+  background-color: var(--color2);
+  position: absolute;
+  top: 100%;
+  left: -500%;
+  width: 1000%;
+  height: 240px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.hd .gnb:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*header - gnb - sub*/
+.gnb .sub {
+  position: absolute;
+  top: 100%;
+  min-width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.hd .gnb:hover .sub {
+  visibility: visible;
+  opacity: 1;
+}
+.gnb .sub li {
+  margin: 1.5rem 0 1.5rem 1rem;
+}
+
+.gnb .sub a {
+  /* border: 1px solid blue; */
+  color: var(--color4);
+  font-size: 1.125em;
+  padding: 0.5rem 0;
+  font-family: var(--sub-title-font);
+  white-space: nowrap;
+  transition: color 0.3s;
+  vertical-align: middle;
+}
+.gnb .sub a::after {
+  content: "";
+  display: inline-block;
+  background-color: var(--main-color);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 10px;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.gnb .sub a:hover {
+  color: var(--main-color);
+}
+.gnb .sub a:hover::after {
+  transform: scale(1);
+}
+
+/*header - fnc*/
+.hd .fnc {
+  width: 15%;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.hd .fnc a {
+  /* gap: 1; */
+  margin-left: 1rem;
+  color: var(--main-color);
+  white-space: nowrap;
+  position: relative;
+}
+.hd .fnc a::before {
+  content: "";
+  display: inline-block;
+  background-color: var(--main-color);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -2px;
+  display: none;
+}
+.hd .fnc a:hover::before {
+  display: block;
+}
+
+/*header - ham_bnt*/
+.hd .ham_bnt {
+  display: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--main-color);
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+/* main */
+body section > * {
+  border: 1px solid green;
+}
+
+.mainVisual .mvs > * {
+  border: 1px solid pink;
+}
+.mainVisual {
+  border: 1px solid red;
+  background-color: var(--color6);
+  position: relative;
+}
+.mainVisual .mvs {
+  background-color: var(--color6);
+  position: relative;
+  padding-top: 45%;
+}
+.mainVisual .mvs h2 {
+  position: absolute;
+  color: var(--main-color);
+  width: 35%;
+  top: 50%;
+  transform: translateY(-70%);
+  z-index: 10;
+}
+.mainVisual .mvs h2 > span {
+  font-size: 1.875rem;
+}
+.mainVisual .mvs h2 > p {
+  font-size: 4.6875rem;
+  font-weight: 500;
+}
+.mainVisual .mvs img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+.swiper-pagination.mvPgn {
+  width: auto;
+  top: 80%;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--color5);
+  width: 15px;
+  height: 3px;
+  border-radius: 0;
+  transition: 0.5s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--main-color);
+  width: 100px;
+  height: 3px;
+}
+
+.mainVisual .quick {
+  /* display: none; */
+  background-color: var(--color2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.5625rem;
+  font-family: var(--sub-title-font);
+  font-weight: 900;
+}
+.mainVisual .quick a {
+  border: 1px solid blueviolet;
+  padding: 1rem 1.5rem;
+}
+.mainVisual .quick a::after {
+  content: " >";
+}
+
+/* section.eduMonth */
+.eduMonth {
+  border: 10px solid lightcoral;
+  height: 50vh;
+}
+
+/* 디바이스용 */
+@media (max-width: 1300px) {
+  /* header */
+  .hd .gnb,
+  .hd .fnc {
+    display: none;
+  }
+
+  .hd .ham_bnt {
+    display: block;
+  }
+  .hd nav:hover::before {
+    visibility: hidden;
+  }
+}
